@@ -27,7 +27,6 @@ module.exports = {
 		} else {
 			URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}, ${country}&appid=${openWeather.apiKey}&units=metric`
 		}
-		// const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${openWeather.apiKey}&units=metric`
 
 		const response = await fetch(URL);
 		const weather = await response.json();

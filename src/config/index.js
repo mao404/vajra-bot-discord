@@ -17,4 +17,7 @@ module.exports = {
 	openWeather: {
 		apiKey: process.env.OPENWEATHER_KEY,
 	},
+	tenor: {
+		apiKey: process.env.TENOR_KEY,
+	},
 }
