@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+const config = require('../../config');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -13,7 +14,7 @@ module.exports = {
   async execute(interaction) {
     const { user } = interaction;
 
-    if (user.id !== '140528330456825856') {
+    if (user.id !== config.discord.adminId) {
       return interaction.reply({
         content: 'Command only for developers',
         ephemeral: true,
