@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, PermissionsBitField } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -9,6 +9,19 @@ module.exports = {
     ),
   async execute(interaction) {
     const amount = interaction.options.getInteger('amount');
+
+    const isGuildOwner = interaction.member.id === interaction.guild.ownerId;
+    const isAdmin = interaction.member.permissions.has(
+      PermissionsBitField.Flags.Administrator,
+    );
+
+    if (!isGuildOwner && !isAdmin) {
+      return interaction.reply({
+        content:
+          'You must be the server owner or have Administrator permissions to use this command.',
+        ephemeral: true,
+      });
+    }
 
     if (amount < 1 || amount > 99) {
       return interaction.reply({
