@@ -12,7 +12,7 @@ module.exports = {
   discord: {
     token: process.env.DISCORD_TOKEN,
     clientId: process.env.CLIENT_ID,
-    guildId: process.env.SERVER_ID,
+    guildId: process.env.GUILD_ID,
     adminId: process.env.DISCORD_USER_ID,
   },
   openWeather: {
