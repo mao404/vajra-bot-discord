@@ -4,7 +4,14 @@ const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const config = require('../src/config');
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
+});
 client.cooldowns = new Collection();
 
 client.commands = new Collection();
